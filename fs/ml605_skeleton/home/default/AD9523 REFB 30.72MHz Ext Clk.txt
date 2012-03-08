@@ -1,0 +1,130 @@
+// Created on 12/15/2011 7:49:00 AM
+// All Values in Hexadecimal
+// Address	Value
+
+// Reset (self clearing)
+0000	22
+// Delay to let reset finish
+0000	00
+0000	00
+0000	00
+0000	00
+0000	00
+0000	00
+
+0010	00
+0011	00
+0012	00
+0013	00
+0014	00
+0015	00
+0016	04
+0017	00
+0018	0C
+0019	03
+001A	52
+001B	30
+001C	8C
+001D	00
+00F0	78
+00F1	03
+00F2	33
+00F3	00
+00F4	00
+00F5	12
+00F6	00
+00F7	01
+// ZD Output (Channel 0)
+0190	03
+0191	04
+0192	00
+// DAC Clock (Channel 1)
+// LVPECL, /1, No phase offset
+0193	01
+0194	00
+0195	00
+// ADC Clock (Channel 2)
+// LVDS (7mA), /4, No phase offset
+0196	03
+0197	03
+0198	00
+// Unused (Channel 3)
+0199	20
+019A	1F
+019B	00
+// DAC Reference Clock (Channel 4)
+// LVDS (7mA), /32, No phase offset (Not final value)
+019C	03
+019D	1F
+019E	00
+// Tx LO Reference (Channel 5)
+// CMOS on +, Hi-Z on -, /8, No Phase offset
+019F	08
+01A0	07
+01A1	00
+// DAC DCO (Channel 6)
+// LVDS (7mA), /8, No phase offset (Value depends on DAC interpolation)
+01A2	03
+01A3	07
+01A4	00
+// Unused (Channel 7)
+01A5	20
+01A6	1F
+01A7	00
+// ADC SYNC (Channel 8)
+// CMOS on +, Hi-Z on -, /32, No Phase offset (Not final value)
+01A8	08
+01A9	1F
+01AA	04
+// Rx LO Reference (Channel 9)
+// CMOS on +, Hi-Z on -, /8, No Phase offset
+01AB	08
+01AC	07
+01AD	00
+// Unused (Channel 10)
+01AE	20
+01AF	1F
+01B0	00
+// Unused (Channel 11)
+01B1	20
+01B2	1F
+01B3	00
+// Unused (Channel 12)
+01B4	20
+01B5	1F
+01B6	00
+// Unused (Channel 13)
+01B7	20
+01B8	1F
+01B9	00
+
+01BA	00
+01BB	81
+022C	00
+022D	09
+022E	00
+022F	00
+// Status 0 LED (CR5)
+// PLL1 Locked
+0230	02
+// Status 1 LED (CR4)
+// PLL2 Locked
+0231	03
+
+0233	00
+// Commit IO_Update
+0234	01
+
+
+// Cal VCO
+00F3	02
+0234	01
+// Wait for PLL2 lock
+WAITFORBIT 022C 1 1
+00F3	00
+0234	01
+
+// Sync output divider
+//0232	00
+//0232	01
+//0232	00
