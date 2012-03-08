@@ -1,0 +1,4 @@
+config BR2_PACKAGE_NDSO
+	bool "ndso"
+	help
+	  foo
