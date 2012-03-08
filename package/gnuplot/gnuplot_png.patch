@@ -1,0 +1,11 @@
+--- gnuplot-4.0.0/term/png.trm	2004-04-13 19:24:36.000000000 +0200
++++ gnuplot-4.0.0/term/png.trm	2012-02-02 14:26:25.114589000 +0100
+@@ -459,7 +459,7 @@
+ 	    info_ptr->valid |= PNG_INFO_tRNS;
+ 	    info_ptr->num_trans = 1;
+ 	    pal_trans[0] = 0;
+-	    info_ptr->trans=pal_trans;
++	    info_ptr->trans_alpha=pal_trans;
+ 	}
+
+ 	for (i = 0; i < WEB_N_COLORS; i++) {
