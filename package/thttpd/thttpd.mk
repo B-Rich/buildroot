@@ -36,6 +36,9 @@ define THTTPD_INSTALL_TARGET_CMDS
 	echo 'cgipat=**.cgi' >> $(TARGET_DIR)/var/www/thttpd_config
 	echo "logfile=/var/www/logs/thttpd_log" >> $(TARGET_DIR)/var/www/thttpd_config
 	echo "pidfile=/var/run/thttpd.pid" >> $(TARGET_DIR)/var/www/thttpd_config
+	if [ "$(BR2_PACKAGE_NDSO)" = "y" ];\
+	then echo "user=root" >> $(TARGET_DIR)/var/www/thttpd_config; \
+	fi
 endef
 
 define THTTPD_UNINSTALL_TARGET_CMDS
