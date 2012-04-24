@@ -28,12 +28,14 @@ null::sysinit:/bin/mount -t debugfs debugfs /sys/kernel/debug
 # Put a getty on the serial port
 ttyUL0::respawn:/sbin/getty -L ttyUL0 57600 vt100 # GENERIC_SERIAL
 null::sysinit:mknod /dev/spidev0.2 c 153 0
-null::sysinit:mknod /dev/spidev0.0 c 153 1
+null::sysinit:mknod /dev/spidev1.2 c 153 1
 null::sysinit:bitflip /dev/spidev0.2 /home/default/AD9548\ script.txt
+null::sysinit:bitflip /dev/spidev1.2 /home/default/AD9548\ script.txt
 
 # ndso junk
 null::sysinit:/sbin/udhcpc -n -t 6
 null::sysinit:/usr/sbin/inetd
+null::sysinit:/home/default/testxcomm.sh
 
 # Stuff to do for the 3-finger salute
 ::ctrlaltdel:/sbin/reboot
